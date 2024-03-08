@@ -5,35 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Code Editor</title>
+    <script src="https://kit.fontawesome.com/c36e04ed8d.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="container">
         <div class="code">
-            <label>HTML</label>
+            <label><i class="fa-brands fa-html5"></i>HTML</label>
             <textarea id="html-code" onkeyup="run()"></textarea>
 
-            <label>CSS</label>
+            <label><i class="fa-brands fa-css3-alt"></i>CSS</label>
             <textarea id="css-code" onkeyup="run()"></textarea>
 
-            <label>JavaScript</label>
+            <label><i class="fa-brands fa-js"></i>JavaScript</label>
             <textarea id="js-code" onkeyup="run()"></textarea>
         </div>
         <div class="output-container">
-            <label>Output</label>
+            <label><i class="fa-solid fa-globe"></i>Output</label>
             <iframe id="output"></iframe>
         </div>
     </div>
 
     <script>
         function run(){
-            let htmlCode=document.getElementById("html-code").value;
-            let cssCode=document.getElementById("css-code").value;
-            let jsCode=document.getElementById("js-code").value;
-            let output=document.getElementById("output");
+            let htmlCode = document.getElementById("html-code").value;
+            let cssCode = document.getElementById("css-code").value;
+            let jsCode = document.getElementById("js-code").value;
+            let output = document.getElementById("output");
 
-            output.contentDocument.body.innerHTML = htmlCode + "<style>" + cssCode + "</style>";
-            output.contentWindow.eval(jsCode);
-            }
+            const src =
+            "<html>" +
+            "<head>" +
+            "<style>" +
+            cssCode +
+            "<\/style>" +
+            "<\/head>" +
+            "<body>" +
+            htmlCode +
+            "<script>" +
+            jsCode +
+            "<\/script>" +
+            "<\/body>" +
+            "<\/html>";
+
+            output.srcdoc = src;
+        }
     </script>
 </body>
 </html>

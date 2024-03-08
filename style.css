@@ -39,3 +39,19 @@ label{
     align-items: center;
     padding: 10px;
 }
+
+i{
+    margin: 0 10px;
+}
+
+.fa-html5{
+    color: orangered;
+}
+
+.fa-css3-alt{
+    color: blue;
+}
+
+.fa-js{
+    color: yellow;
+}
